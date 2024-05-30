@@ -7,7 +7,7 @@ import Videos from "./Videos";
 import Chatbot from "./Chatbot";
 
 const Feed = () => {
-  const [selectedCategory, setselectedCategory] = useState("Latest");
+  const [selectedCategory, setselectedCategory] = useState("New");
   const [videos, setvideos] = useState([]);
 
   useEffect(() => {
