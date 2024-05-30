@@ -3,7 +3,7 @@ import { Box, IconButton, TextField, Button, Typography } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
-import axios from "axios";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +14,10 @@ const Chatbot = () => {
     "Best coding channels",
     "Top 5 programming languages",
   ]);
+
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyCXsDlojJX8of57Q8MjgIXpOvHNubHlLLg"
+  );
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -27,33 +31,22 @@ const Chatbot = () => {
     if (!message.trim()) return;
 
     const userMessage = { sender: "user", text: message };
-    setMessages([...messages, userMessage]);
-
-    const options = {
-      method: "POST",
-      url: "https://chat-gpt26.p.rapidapi.com/",
-      headers: {
-        "content-type": "application/json",
-        "X-RapidAPI-Key": "2feae43139msh91d8e953f8663a7p1aa1bcjsne33d5897f08b",
-        "X-RapidAPI-Host": "chat-gpt26.p.rapidapi.com",
-      },
-      data: {
-        model: "gpt-3.5-turbo",
-        messages: [{ role: "user", content: message }],
-      },
-    };
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
 
     try {
-      const response = await axios.request(options);
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+      const result = await model.generateContent(message);
+      const response = await result.response.text();
+
       const botMessage = {
         sender: "bot",
-        text: response.data.choices[0].message.content,
+        text: response,
       };
-      setMessages([...messages, botMessage]);
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
       console.error("Error fetching AI response:", error);
-      setMessages([
-        ...messages,
+      setMessages((prevMessages) => [
+        ...prevMessages,
         { sender: "bot", text: "Error fetching response" },
       ]);
     }
@@ -77,8 +70,9 @@ const Chatbot = () => {
         color="primary"
         onClick={toggleChat}
         sx={{
-          backgroundColor: "white",
-          "&:hover": { backgroundColor: "lightgray" },
+          backgroundColor: "#FF0000",
+          "&:hover": { backgroundColor: "#CC0000" },
+          color: "white",
         }}
       >
         {isOpen ? <CloseIcon /> : <ChatIcon />}
@@ -89,17 +83,21 @@ const Chatbot = () => {
             position: "fixed",
             bottom: 80,
             right: 20,
-            width: 300,
-            height: 400,
-            backgroundColor: "#fff",
-            borderRadius: 2,
-            boxShadow: 3,
+            width: 320,
+            height: 450,
+            backgroundColor: "#FFFFFF",
+            borderRadius: 4,
+            boxShadow: 5,
             display: "flex",
             flexDirection: "column",
             p: 2,
           }}
         >
-          <Typography variant="h6" gutterBottom>
+          <Typography
+            variant="h6"
+            gutterBottom
+            sx={{ fontSize: "1.2rem", color: "#FF0000" }}
+          >
             Chat with AI
           </Typography>
           <Box
@@ -119,10 +117,12 @@ const Chatbot = () => {
                   alignSelf:
                     message.sender === "user" ? "flex-end" : "flex-start",
                   backgroundColor:
-                    message.sender === "user" ? "lightblue" : "lightgray",
+                    message.sender === "user" ? "#FF0000" : "#F5F5F5",
                   borderRadius: 2,
                   p: 1,
                   maxWidth: "80%",
+                  fontSize: "1rem",
+                  color: message.sender === "user" ? "white" : "black",
                 }}
               >
                 <Typography variant="body2">{message.text}</Typography>
@@ -144,24 +144,50 @@ const Chatbot = () => {
               onKeyPress={(e) => {
                 if (e.key === "Enter") sendMessage(input);
               }}
+              sx={{ bgcolor: "white" }}
             />
             <Button
               variant="contained"
-              color="primary"
-              onClick={() => sendMessage(input)}
+              sx={{
+                backgroundColor: "#FF0000",
+                color: "white",
+                "&:hover": { backgroundColor: "#CC0000" },
+              }}
+              onClick={() => {
+                sendMessage(input);
+                setInput("");
+              }}
               endIcon={<SendIcon />}
             >
               Send
             </Button>
           </Box>
           <Box sx={{ mt: 2 }}>
-            <Typography variant="subtitle1">Suggestions:</Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ fontSize: "1rem", color: "#FF0000" }}
+            >
+              Suggestions:
+            </Typography>
             {suggestions.map((suggestion, index) => (
               <Button
                 key={index}
                 variant="outlined"
-                onClick={() => handleSuggestionClick(suggestion)}
-                sx={{ mt: 1 }}
+                onClick={() => {
+                  handleSuggestionClick(suggestion);
+                  setInput("");
+                }}
+                sx={{
+                  mt: 1,
+                  fontSize: "0.8rem",
+                  textTransform: "none",
+                  color: "#FF0000",
+                  borderColor: "#FF0000",
+                  "&:hover": {
+                    backgroundColor: "#FFEBEB",
+                    borderColor: "#CC0000",
+                  },
+                }}
               >
                 {suggestion}
               </Button>

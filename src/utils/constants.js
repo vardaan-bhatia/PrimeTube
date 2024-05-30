@@ -16,23 +16,23 @@ import AppsIcon from "@mui/icons-material/Apps";
 export const logo = "https://cdn-icons-png.flaticon.com/512/3670/3670163.png";
 
 export const categories = [
-  { name: "Latest", icon: <HomeIcon /> },
+  { name: "New", icon: <HomeIcon /> },
   { name: "JS Mastery", icon: <DeveloperModeIcon /> },
   { name: "Chai aur Code", icon: <LaptopIcon /> },
+  { name: "Code With Antonio", icon: <CodeIcon /> },
   { name: "React JS", icon: <AppsIcon /> },
   { name: "Namaste JavaScript", icon: <CodeIcon /> },
-  { name: "SeedheMaut", icon: <MusicNoteIcon /> },
   { name: "Roadside Coder", icon: <SchoolIcon /> },
+  { name: "Trending", icon: <MusicNoteIcon /> },
+  { name: "Live", icon: <LiveTvIcon /> },
+  { name: "Podcast", icon: <GraphicEqIcon /> },
   { name: "UNFILTERED by Samdish", icon: <GraphicEqIcon /> },
   { name: "TMKOC", icon: <OndemandVideoIcon /> },
   { name: "Gaming", icon: <SportsEsportsIcon /> },
-  { name: "Live", icon: <LiveTvIcon /> },
   { name: "Gym", icon: <FitnessCenterIcon /> },
-  { name: "Fashion", icon: <CheckroomIcon /> },
   { name: "Lallantop", icon: <OndemandVideoIcon /> },
   { name: "Samay Raina", icon: <TheaterComedyIcon /> },
-  { name: "Podcast", icon: <GraphicEqIcon /> },
-  { name: "Tanmay Bhat", icon: <TheaterComedyIcon /> },
+  { name: "Standup", icon: <TheaterComedyIcon /> },
 ];
 
 export const demoThumbnailUrl = "https://i.ibb.co/G2L2Gwp/API-Course.png";
