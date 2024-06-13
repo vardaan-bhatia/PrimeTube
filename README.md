@@ -27,7 +27,7 @@ PrimeTube is a feature-rich video streaming platform designed for seamless user 
 
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/7ed7ec79-fc4a-4a88-aeea-d3e505018f66)
 
-![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/4f08380a-a96c-4e7d-8856-4bcc9556b066)
+![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/cec952a7-9265-415a-9508-109bb5a156eb)
 
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/40247ff8-7c14-4b27-88f0-4b7297016916)
 
