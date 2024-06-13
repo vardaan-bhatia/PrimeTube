@@ -1,26 +1,29 @@
-PrimeTube
+# **PrimeTube**
 
 PrimeTube is a feature-rich video streaming platform designed for seamless user interaction and intuitive navigation.
-Key Features
 
-    Video Playback: Enjoy smooth playback of videos with play, pause, and seek functionalities.
-    User Interaction: Engage with videos through views and comments in view mode.
-    Voice Search: Search for videos using voice commands for enhanced accessibility.
-    Payment Integration: Secure payment processing for premium subscriptions via RapidAPI.
-    Responsive Design: Ensures optimal viewing experience across various devices.
-    Explore Channels: Discover content organized by channels for easy navigation.
+## **Key Features**
 
-Technologies Used
+- **Video Playback:** Enjoy smooth playback of videos with play, pause, and seek functionalities.
+- **User Interaction:** Engage with videos through views and comments in view mode.
+- **Voice Search:** Search for videos using voice commands for enhanced accessibility.
+- **Payment Integration:** Secure payment processing for premium subscriptions via RapidAPI.
+- **Responsive Design:** Ensures optimal viewing experience across various devices.
+- **Explore Channels:** Discover content organized by channels for easy navigation.
 
-    Frontend: Developed using React.js for dynamic UI components and state management.
-    UI Framework: Enhanced with Material-UI to achieve a modern and responsive design.
-    API Integration: Leveraged RapidAPI for external services such as voice search and payment gateway.
+## **Technologies Used**
 
-Getting Started
+- **Frontend:** Developed using React.js for dynamic UI components and state management.
+- **UI Framework:** Enhanced with Material-UI to achieve a modern and responsive design.
+- **API Integration:** Leveraged RapidAPI for external services such as voice search and payment gateway.
 
-    Clone Repository: Clone the repository from GitHub.
-    Install Dependencies: Run npm install to install required packages.
-    Start Development Server: Use npm start to launch the application locally.![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/8cea9d37-db26-4b1a-b5c7-e69e14bdb886)
+## **Getting Started**
+
+1. **Clone Repository:** Clone the repository from GitHub.
+2. **Install Dependencies:** Run `npm install` to install required packages.
+3. **Start Development Server:** Use `npm start` to launch the application locally.
+
+![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/8cea9d37-db26-4b1a-b5c7-e69e14bdb886)
 
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/7ed7ec79-fc4a-4a88-aeea-d3e505018f66)
 
