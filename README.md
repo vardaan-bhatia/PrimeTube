@@ -22,10 +22,12 @@ PrimeTube is a feature-rich video streaming platform designed for seamless user 
 1. **Clone Repository:** Clone the repository from GitHub.
 2. **Install Dependencies:** Run `npm install` to install required packages.
 3. **Start Development Server:** Use `npm start` to launch the application locally.
-
+---
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/8cea9d37-db26-4b1a-b5c7-e69e14bdb886)
+---
 
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/7ed7ec79-fc4a-4a88-aeea-d3e505018f66)
+---
 
 ![image](https://github.com/vardaan-bhatia/PrimeTube/assets/88616764/cec952a7-9265-415a-9508-109bb5a156eb)
 
