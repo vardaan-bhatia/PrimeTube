@@ -8,7 +8,7 @@ PrimeTube is a feature-rich video streaming platform designed for seamless user 
 - **User Interaction:** Engage with videos through views and comments in view mode.
 - **Voice Search:** Search for videos using voice commands for enhanced accessibility.
 - **Payment Integration:** Secure payment processing for premium subscriptions via Razorpay.
-- **AI Integration:** Enhance user interaction and support through real-time AI-driven assistance using the Google Developer Gemini API.
+- **AI Integration:** Integration of an AI chat bot using the Google Developer Gemini API.
 - **Responsive Design:** Ensures optimal viewing experience across various devices.
 - **Explore Channels:** Discover content organized by channels for easy navigation.
 
