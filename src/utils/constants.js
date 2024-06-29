@@ -16,7 +16,7 @@ import AppsIcon from "@mui/icons-material/Apps";
 export const logo = "https://cdn-icons-png.flaticon.com/512/3670/3670163.png";
 
 export const categories = [
-  { name: "New", icon: <HomeIcon /> },
+  { name: "Latest", icon: <HomeIcon /> },
   { name: "JS Mastery", icon: <DeveloperModeIcon /> },
   { name: "Chai aur Code", icon: <LaptopIcon /> },
   { name: "Code With Antonio", icon: <CodeIcon /> },

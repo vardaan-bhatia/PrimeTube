@@ -16,7 +16,7 @@ const Chatbot = () => {
   ]);
 
   const genAI = new GoogleGenerativeAI(
-    "AIzaSyCXsDlojJX8of57Q8MjgIXpOvHNubHlLLg"
+    "AIzaSyCz3UfO7za07lp3m0uoIT5Gol9Ry4xZPf0"
   );
 
   const toggleChat = () => {
@@ -35,8 +35,8 @@ const Chatbot = () => {
 
     try {
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const result = await model.generateContent(message);
-      const response = await result.response.text();
+      const result = await model.generateContent({ prompt: message });
+      const response = await result.text();
 
       const botMessage = {
         sender: "bot",
