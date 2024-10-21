@@ -3,7 +3,7 @@ import { Box, IconButton, TextField, Button, Typography } from "@mui/material";
 import ChatIcon from "@mui/icons-material/Chat";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import axios from "axios";
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,10 +14,6 @@ const Chatbot = () => {
     "Best coding channels",
     "Top 5 programming languages",
   ]);
-
-  const genAI = new GoogleGenerativeAI(
-    "AIzaSyCz3UfO7za07lp3m0uoIT5Gol9Ry4xZPf0"
-  );
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
@@ -34,9 +30,17 @@ const Chatbot = () => {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-      const result = await model.generateContent({ prompt: message });
-      const response = await result.text();
+      const { data } = await axios({
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.REACT_APP_CHAT_ID}`,
+        method: "post",
+        data: {
+          contents: [{ parts: [{ text: message }] }],
+        },
+      });
+
+      const response =
+        data.candidates?.[0]?.content?.parts[0]?.text ||
+        "Error fetching response";
 
       const botMessage = {
         sender: "bot",
@@ -47,7 +51,7 @@ const Chatbot = () => {
       console.error("Error fetching AI response:", error);
       setMessages((prevMessages) => [
         ...prevMessages,
-        { sender: "bot", text: "Error fetching response" },
+        { sender: "bot", text: "Error fetching response/Api Key Expired" },
       ]);
     }
   };

@@ -50,7 +50,6 @@ const Navbar = () => {
       SpeechRecognition.startListening({ continuous: false });
     }
   };
-
   const handlePremiumClick = () => {
     navigate("/premium-plan");
   };
